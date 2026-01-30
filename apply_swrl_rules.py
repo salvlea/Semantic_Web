@@ -27,7 +27,6 @@ with onto:
         if hasattr(vuln, 'hasCVSSScore') and vuln.hasCVSSScore:
             score = vuln.hasCVSSScore[0]
             if score > 8.0:
-                # Aggiungi il tipo CriticalVulnerability
                 if onto.CriticalVulnerability not in vuln.is_a:
                     vuln.is_a.append(onto.CriticalVulnerability)
                     print(f"  ✅ {vuln.name} (CVSS: {score}) → CriticalVulnerability")
@@ -64,7 +63,7 @@ with onto:
                         if hasattr(v, 'hasCVSSScore') and v.hasCVSSScore:
                             print(f"      └─ ha {v.name} (CVSS: {v.hasCVSSScore[0]})")
 
-print(f"\n📊 {high_risk_count} sistemi classificati come HighRisk")
+print(f"\n {high_risk_count} sistemi classificati come HighRisk")
 
 # REGOLA 3: PotentiallyAttackable (nuova classe da creare)
 print("\n" + "=" * 80)
@@ -91,7 +90,6 @@ for attack in onto.Attack.instances():
             for system in onto.System.instances():
                 if hasattr(system, 'hasVulnerability') and system.hasVulnerability:
                     if exploited_vuln in system.hasVulnerability:
-                        # Non modifichiamo is_a (problemi con owlready2)
                         # Tracciamo solo i sistemi attackable
                         info = (system.name, attack.name, exploited_vuln.name,
                                exploited_vuln.hasCVSSScore[0] if hasattr(exploited_vuln, 'hasCVSSScore') and exploited_vuln.hasCVSSScore else 0)
@@ -119,9 +117,9 @@ output_file = "cyberseconto_inferred.owl"
 onto.save(file=output_file)
 print(f"\n Ontologia con inferenze salvata come '{output_file}'")
 
-# RIEPILOGO DETTAGLIATO
+# riepilogo dettagliato 
 print("\n" + "=" * 80)
-print("📋 RIEPILOGO DETTAGLIATO")
+print(" RIEPILOGO DETTAGLIATO")
 print("=" * 80)
 
 print("\n VULNERABILITÀ CRITICHE:")

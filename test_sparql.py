@@ -5,7 +5,7 @@ print("=" * 80)
 print("CYBERSECONTO - SPARQL QUERIES TEST")
 print("=" * 80)
 
-# Caricamento ontologia (usa quella con inferenze se disponibile)
+# caricamento ontologia 
 onto_path.append(".")
 try:
     onto = get_ontology("cyberseconto_inferred.owl").load()
@@ -14,7 +14,7 @@ except:
     onto = get_ontology("cyberseconto_populated.owl").load()
     print(" Caricata ontologia popolata (senza inferenze)\n")
 
-# Setup namespaces per SPARQL
+
 default_world.sparql_query("""
     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
     PREFIX owl: <http://www.w3.org/2002/07/owl#>
@@ -24,7 +24,7 @@ default_world.sparql_query("""
     SELECT ?s WHERE { ?s rdf:type owl:Thing } LIMIT 1
 """)
 
-# QUERY 1: Sistemi ad Alto Rischio
+# QUERY 1: sistemi ad alto rischio
 print("=" * 80)
 print("QUERY 1: SISTEMI AD ALTO RISCHIO (HighRiskSystem)")
 print("=" * 80)
@@ -56,7 +56,7 @@ try:
 except Exception as e:
     print(f" Errore: {e}")
 
-# QUERY 2: Vulnerabilità Critiche (CVSS > 8)
+# QUERY 2: vulnerabilità critiche (CVSS > 8)
 print("\n" + "=" * 80)
 print("QUERY 2: VULNERABILITÀ CRITICHE (CVSS > 8.0)")
 print("=" * 80)
@@ -81,7 +81,7 @@ try:
 except Exception as e:
     print(f" Errore: {e}")
 
-# QUERY 3: Sistemi con Vulnerabilità e relativi CVSS
+# QUERY 3: sistemi con vulnerabilità e relativi CVSS
 print("\n" + "=" * 80)
 print("QUERY 3: SISTEMI CON VULNERABILITÀ")
 print("=" * 80)
@@ -103,7 +103,7 @@ try:
     results = list(default_world.sparql(query3))
     print(f"\nTrovati {len(results)} sistemi con vulnerabilità:")
     current_system = None
-    for system, vuln, cvss in results[:10]:  # Mostra solo primi 10
+    for system, vuln, cvss in results[:10]:  
         system_name = system.name if hasattr(system, 'name') else str(system)
         vuln_name = vuln.name if hasattr(vuln, 'name') else str(vuln)
         if system_name != current_system:
@@ -113,7 +113,7 @@ try:
 except Exception as e:
     print(f" Errore: {e}")
 
-# QUERY 4: Attacchi e Vulnerabilità Sfruttate
+# QUERY 4: attacchi e vulnerabilità sfruttate
 print("\n" + "=" * 80)
 print("QUERY 4: ATTACCHI E VULNERABILITÀ SFRUTTATE")
 print("=" * 80)
@@ -140,7 +140,7 @@ try:
 except Exception as e:
     print(f" Errore: {e}")
 
-# QUERY 5: Sistemi Potenzialmente Attaccabili (Attack + System con stessa Vulnerability)
+# QUERY 5: sistemi potenzialmente attaccabili 
 print("\n" + "=" * 80)
 print("QUERY 5: SISTEMI POTENZIALMENTE ATTACCABILI")
 print("=" * 80)
@@ -172,7 +172,7 @@ try:
 except Exception as e:
     print(f" Errore: {e}")
 
-# QUERY 6: Statistiche Vulnerabilità per Range CVSS
+# QUERY 6: statistiche vulnerabilità per Range CVSS
 print("\n" + "=" * 80)
 print("QUERY 6: STATISTICHE VULNERABILITÀ PER SEVERITÀ")
 print("=" * 80)
@@ -230,7 +230,7 @@ try:
 except Exception as e:
     print(f" Errore: {e}")
 
-# QUERY 7: Dipendenze tra Sistemi (Transitività)
+# QUERY 7: dipendenze tra sistemi (Transitività)
 print("\n" + "=" * 80)
 print("QUERY 7: DIPENDENZE TRA SISTEMI")
 print("=" * 80)

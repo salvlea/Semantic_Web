@@ -18,15 +18,13 @@ print("=" * 60)
 print("VERIFICA ACCESSO AttackType:")
 print("=" * 60)
 
-# Proviamo vari modi per accedere alla classe
 print(f"onto.AttackType = {onto.AttackType}")
 print(f"type(onto.AttackType) = {type(onto.AttackType)}")
 
-# Proviamo a cercarla
 attack_class = onto.search_one(iri="*AttackType")
 print(f"search_one AttackType = {attack_class}")
 
-# Lista tutti gli individui
+# Lista  individui
 print("\n" + "=" * 60)
 print("INDIVIDUI ESISTENTI:")
 print("=" * 60)
