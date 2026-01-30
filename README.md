@@ -22,7 +22,7 @@
 
 ## File dell'Ontologia
 
-### `cyberseconto.rdf`
+### `Untiled.rdf`
 **Tipo:** Ontologia OWL originale (formato RDF/XML)  
 **Descrizione:**
 
@@ -103,10 +103,6 @@ python3 test_sparql.py
 
 
 
----
-
-
-
 
 ---
 
@@ -168,15 +164,13 @@ Apri `cyberseconto_inferred.owl` in Protégé per visualizzazione grafica delle 
 
 ```
 semantic_web/
-├── Untitled.rdf                    # Ontologia originale (Protégé)
-├── cyberseconto_populated.owl      # Ontologia con dati di test
-├── cyberseconto_inferred.owl       # Ontologia con inferenze
-├── popolamento.py                  # Script popolamento
-├── apply_swrl_rules.py            # Applicazione regole SWRL
-├── test_sparql.py                 # Test query SPARQL
-├── debug_onto.py                  # Debug classi
-├── debug_properties.py            # Debug proprietà
-└── README.md                      # Questa documentazione
+├── Untitled.rdf                    
+├── cyberseconto_populated.owl      
+├── cyberseconto_inferred.owl       
+├── popolamento.py                  
+├── apply_swrl_rules.py            
+├── test_sparql.py                
+├── debug_onto.py                  
+├── debug_properties.py            
+└── README.md                      
 ```
-
----
