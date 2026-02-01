@@ -10,7 +10,7 @@
 
 ---
 
-## Panoramicaaaaaa 
+## Panoramica
 
 **CyberSecOnto** è un'ontologia OWL nel dominio della cybersecurity che modella le relazioni tra sistemi informatici, vulnerabilità, attacchi e mitigazioni. Il progetto utilizza:
 - **OWL** per la definizione delle classi e proprietà
